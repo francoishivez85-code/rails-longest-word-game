@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <h1 class="mb-4">New game</h1>
+
+  <ul class="list-inline">
+    <% @letters.each do |letter| %>
+      <li class="list-inline-item badge bg-primary p-3 fs-4"><%= letter %></li>
+    <% end %>
+  </ul>
+
+  <form action="/score" method="post" data-turbo="false" class="mt-4">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters.join(" ") %>
+
+    <div class="mb-3">
+      <label for="word" class="form-label">Your word</label>
+      <input type="text" id="word" name="word" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-success">Play!</button>
+  </form>
+</div>

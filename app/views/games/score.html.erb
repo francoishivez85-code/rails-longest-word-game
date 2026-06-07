@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Result</h1>
+
+  <% if !@included %>
+    <p class="alert alert-danger">
+      Sorry, <strong><%= @word %></strong> can't be built out of <%= @letters.join(", ") %>.
+    </p>
+
+  <% elsif !@english_word %>
+    <p class="alert alert-warning">
+      Sorry, <strong><%= @word %></strong> is not a valid English word.
+    </p>
+
+  <% else %>
+    <p class="alert alert-success">
+      Congratulations! <strong><%= @word %></strong> is a valid English word!
+    </p>
+  <% end %>
+
+  <%= link_to "Play again", new_path, class: "btn btn-primary mt-3" %>
+</div>
